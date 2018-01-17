@@ -1,0 +1,8 @@
+GO: gobook.pdf
+
+
+//----------------Closure-----------------
+It is possible to create functions inside of functions in go known as closure
+
+//----------------Interfaces---------------
+

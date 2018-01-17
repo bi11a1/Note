@@ -1,0 +1,33 @@
+//--------------------kubernetes---------------------
+To work with Kubernetes, you use Kubernetes API objects to describe your cluster’s desired state: what applications or other workloads you want to run, what container images they use, the number of replicas, what network and disk resources you want to make available, and more. You set your desired state by creating objects using the Kubernetes API, typically via the command-line interface, kubectl. You can also use the Kubernetes API directly to interact with the cluster and set or modify your desired state.Once you’ve set your desired state, the Kubernetes Control Plane works to make the cluster’s current state match the desired state. To do so, Kubernetes performs a variety of tasks automatically–such as starting or restarting containers, scaling the number of replicas of a given application, and more. 
+
+The Kubernetes master is responsible for maintaining the desired state for your cluster.
+
+The nodes in a cluster are the machines (VMs, physical servers, etc) that run your applications
+
+//----------------------
+Kubernetes is an open-source platform designed to automate deploying, scaling, and operating application containers.
+Self-healing: auto-placement, auto-restart, auto-replication, auto-scaling.
+
+//----------------------Names--------------------------
+All objects in the Kubernetes REST API are unambiguously identified by a Name.
+
+//----------------------name space---------------------
+Namespaces are intended for use in environments with many users spread across multiple teams, or projects.Namespaces provide a scope for names. Names of resources need to be unique within a namespace, but not across namespaces. Namespaces are a way to divide cluster resources between multiple users.
+
+//----------------------Node---------------------------
+A node is a worker machine in Kubernetes, previously known as a minion. A node may be a VM or physical machine, depending on the cluster. Each node has the services necessary to run pods and is managed by the master components. Each node has a Kubelet, which is an agent for managing the node and communicating with the Kubernetes master. The node should also have tools for handling container operations, such as Docker
+
+//---------------------Master/node controller----------
+The node controller is a Kubernetes master component which manages various aspects of nodes.The Master is responsible for managing the cluster. The master coordinates all activities in your cluster, such as scheduling applications, maintaining applications' desired state, scaling applications, and rolling out new updates.
+
+//---------------------Minikube------------------------
+Minikube is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node. 
+
+//----------------------Kubectl------------------------
+kubectl(may be kube-control) is a command line interface for running commands against Kubernetes clusters. 
+
+
+
+//---------------------REST API------------------------
+REST stands for Representational state transfer. A REST API defines a set of functions which developers can perform requests and receive responses via HTTP protocol such as GET and POST.

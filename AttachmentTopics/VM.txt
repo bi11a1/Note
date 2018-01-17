@@ -1,0 +1,6 @@
+//-----------------------------------------virtual machine------------------------------
+A virtual machine is a software computer that, like a physical computer, runs an operating system and applications.
+
+The industry standard today is to use Virtual Machines (VMs) to run software applications. VMs run applications inside a guest Operating System, which runs on virtual hardware powered by the server’s host OS.
+
+

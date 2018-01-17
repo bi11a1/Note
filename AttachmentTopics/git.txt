@@ -1,0 +1,122 @@
+GIT: https://git-scm.com/book/en/v2
+
+							 Introduction
+							**************
+//---------------------------what is git?-------------------
+Git is a version control system that records changes to a file or set of files over time so that you can recall specific versions later.when you’re dealing with more than one person working on something, or on a large project with lots of complicated components, that’s simply not feasible. That’s when we turn to something called version control.
+To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots.
+
+//----------------------------branching---------------------------
+Branching means you diverge from the main line of development and continue to do work without messing with that main line.In many VCS tools, this is a somewhat expensive process, often requiring you to create a new copy of your source code directory, which can take a long time for large projects.Git stores a commit object that contains a pointer to the snapshot of the content you staged.
+
+ 
+							 section 2
+							***********
+
+//------------.git--------------
+$ git init
+This creates a new subdirectory named .git that contains all of your necessary repository files. Keeps information of tracked and untracked files....etc
+
+//-----------------add----------
+$ git add *.c
+$ git add LICENSE
+git add commands that specify the files you want to track
+
+//-------------clone----------
+$ git clone https://github.com/libgit2/libgit2 (remote repository URL)
+That creates a directory named libgit2, initializes a .git directory inside it, pulls down all the data for that repository
+
+$ git clone https://github.com/libgit2/libgit2 mylibgit
+That command does the same thing as the previous one, but the target directory is called mylibgit.
+
+//--------------tracked/untracked-------------
+Remember that each file in your working directory can be in one of two states: tracked or untracked. Tracked files are files that were in the last snapshot; they can be unmodified, modified, or staged. In short, tracked files are files that Git knows about.
+
+//---------------.gitignore------------------
+Often, you’ll have a class of files that you don’t want Git to automatically add or even show you as being untracked. These are generally automatically generated files such as log files or files produced by your build system. In such cases, you can create a file listing patterns to match them named .gitignore. Here is an example .gitignore file:
+
+//----------------diff-------------------------
+$ cat .gitignore
+To see what you’ve changed but not yet staged, type git diff with no other arguments.
+
+//----------------commit------------------------
+$ git commit
+$ git commit -m "Story 182: Fix benchmarks for speed"
+$ git commit -a -m 'added new benchmarks'
+
+//----------------commit history----------------
+$ git log
+shows git commit history
+
+$ git log -p -2
+shows the difference (the patch output) introduced in each commit. You can also limit the number of log entries displayed, such as using -2 to show only the last two entries
+
+//-----------------Undoing Things-----------------
+$ git commit --amend
+Get backs to last commit
+
+$ git reset HEAD CONTRIBUTING.md
+To change from staged to unstage. (can be done only on staged file)
+
+$ git checkout -- CONTRIBUTING.md
+To unmodify a file revert it back to what it looked like when you last committed. (can be done only on unstaged files)
+
+
+//----------------Working with Remotes---------------
+$ git remote
+origin
+To see which remote servers you have configured.
+
+$ git remote -v
+origin	https://github.com/schacon/ticgit (fetch)
+origin	https://github.com/schacon/ticgit (push)
+You can also specify -v, which shows you the URLs that Git has stored for the shortname to be used when reading and writing to that remote:
+
+//---------------Adding Remote Repositories--------------
+$ git remote add pb https://github.com/paulboone/ticgit
+
+//--------------Fetching and Pulling from Your Remotes----
+$ git fetch origin
+The command goes out to that remote project and pulls down all the data from that remote project that you don’t have yet. After you do this, you should have references to all the branches from that remote, which you can merge in or inspect at any time.It’s important to note that the git fetch command only downloads the data to your local repository — it doesn’t automatically merge it with any of your work or modify what you’re currently working on. You have to merge it manually into your work when you’re ready.
+
+//-----------------Pushing to Your Remotes------------
+$ git push origin master
+
+//------------------tagging and alliases--------------
+
+
+							section 3
+						       ***********
+
+
+-----------------------Creating a New Branch-----------
+$ git branch testing
+This creates a new pointer to the same commit you’re currently on.
+How does Git know what branch you’re currently on? It keeps a special pointer called HEAD.
+
+-----------------------Switching Branches--------------
+$ git checkout testing
+To switch to an existing branch, you run the git checkout command. Let’s switch to the new testing branch
+
+$ git checkout -b iss53
+o create a new branch and switch to it at the same time, you can run the git checkout command with the -b switch:
+
+//--------------------Basic Branching------------------
+$ git merge hotfix
+when you try to merge one commit with a commit that can be reached by following the first commit’s history, Git simplifies things by moving the pointer forward because there is no divergent work to merge together — this is called a “fast-forward.”
+
+//-------------------Deleting branch-------------------
+$ git branch -d iss53
+delete the local branch
+$ git branch -rd origin/bugfix
+deletes remote branch
+
+//-------------------Topic Branches---------------------
+Topic branches, however, are useful in projects of any size. A topic branch is a short-lived branch that you create and use for a single particular feature or related work. This is something you’ve likely never done with a VCS before because it’s generally too expensive to create and merge branches. But in Git it’s common to create, work on, merge, and delete branches several times a day.
+
+Remote-tracking branches take the form <remote>/<branch>
+
+
+
+
+

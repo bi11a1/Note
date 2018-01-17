@@ -1,0 +1,41 @@
+HTTP: 
+https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177
+
+(see the link)
+//----------------HTTP-------------------
+HTTP stands for Hypertext Transfer Protocol.HTTP allows for communication between a variety of hosts and clients, and supports a mixture of network configurations.Communication between a host and a client occurs, via a request/response pair. The client initiates an HTTP request message, which is serviced through a HTTP response message in return. 
+
+//--------------URL-----------------------
+At the heart of web communications is the request message, which are sent via Uniform Resource Locators (URLs).URLs reveal the identity of the particular host with which we want to communicate, but the action that should be performed on the host is specified via HTTP verbs.
+
+//----------------HTTP verbs---------------
+GET, POST, PUT, DELETE
+
+//-----------------Status code--------------
+With URLs and verbs, the client can initiate requests to the server. In return, the server responds with status codes and message payloads. The status code is important and tells the client how to interpret the server response.
+1xx: Informational Messages
+2xx: Successful
+3xx: Redirection
+4xx: Client Error
+5xx: Server Error
+
+//------------JSON------------------------
+JSON (JavaScript Object Notation) is a simple data interchange format. It is most commonly used for communication between web back-ends and JavaScript programs running in the browser.
+
+
+Auth:
+https://blog.risingstack.com/web-authentication-methods-explained/
+
+//-----------------Basic authorization----------
+HTTP Basic authentication is a method for the client to provide a username and a password when making a request.The username and password are not encrypted, but constructed this way(username:password) && this string is encoded with Base64
+
+//---------------Cookie------------------------
+When a server receives an HTTP request in the response, it can send a Set-Cookie header. The browser puts it into a cookie jar, and the cookie will be sent aong with every request made to the same origin in the Cookie HTTP header.
+
+//--------------------why not post?------------
+
+
+//------------json encode/decode--------------
+
+
+//-----------------write header---------------
